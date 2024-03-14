@@ -1,0 +1,32 @@
+CREATE TABLE IF NOT EXISTS Trabajador(
+  IdTrabajador INTEGER PRIMARY KEY AUTOINCREMENT,
+  Nombre VARCHAR(100) NOT NULL,
+  NumTelefono VARCHAR(10) NOT NULL,
+  AniosExpPrevia INT NOT NULL,
+  AnioEntrada INT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS TiempoLaborado(
+  IdSemana INTEGER PRIMARY KEY AUTOINCREMENT,
+  IdTrabajador INTEGER,
+  HorasLaboradas INTEGER NOT NULL,
+  Dia INTEGER NOT NULL,
+  Mes INTEGER NOT NULL,
+  Anio INTEGER NOT NULL,
+  FOREIGN KEY (IdTrabajador) REFERENCES Trabajador(IdTrabajador)
+);
+
+CREATE TABLE IF NOT EXISTS Material(
+  IdMaterial INTEGER PRIMARY KEY AUTOINCREMENT,
+  Modelo VARCHAR(100) NOT NULL,
+  Total INTEGER NOT NULL,
+  Disponibles INTEGER NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS TrabajadorUtilizaMaterial(
+  IdTrabajador INTEGER,
+  IdMaterial INTEGER,
+  Cantidad INTEGER NOT NULL,
+  FOREIGN KEY (IdTrabajador) REFERENCES Trabajador(IdTrabajador),
+  FOREIGN KEY (IdMaterial) REFERENCES Material(IdMaterial)
+);

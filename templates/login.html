@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{{url_for('static', filename='style.css')}}" rel="stylesheet">
+  </head>
+  <script type="text/javascript">
+    function changeBackgroundColor(color) {
+      document.body.style.backgroundColor = color;
+    }
+  </script>
+  <body>
+    {% if color %}
+      <h1>Custom color: {{ color }}!</h1>
+    {% else %}
+      <h1>Hello, World!</h1>
+    {% endif %}
+
+    <button type="text" id="myInput" onclick="changeBackgroundColor("#{{color}}")">Click me!</button>
+  </body>
+</html>

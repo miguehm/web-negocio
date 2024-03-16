@@ -28,5 +28,10 @@ def add_post():
     flash('Post added successfully!')
     return redirect(url_for('index'))
 
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    return render_template('login.html')
+
+
 if __name__ == '__main__':
     app.run(debug=True)

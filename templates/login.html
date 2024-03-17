@@ -1,23 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title></title>
+<html lang="es">
+<head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="{{url_for('static', filename='style.css')}}" rel="stylesheet">
-  </head>
-  <script type="text/javascript">
-    function changeBackgroundColor(color) {
-      document.body.style.backgroundColor = color;
-    }
-  </script>
-  <body>
-    {% if color %}
-      <h1>Custom color: {{ color }}!</h1>
-    {% else %}
-      <h1>Hello, World!</h1>
-    {% endif %}
-
-    <button type="text" id="myInput" onclick="changeBackgroundColor("#{{color}}")">Click me!</button>
-  </body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex justify-center items-center h-screen">
+  <div class="w-64 bg-white p-6 rounded-lg shadow-md">
+      <h2 class="text-2xl font-semibold mb-4 text-center">Estudio Fotográfico</h2>
+      <form action="/login" method="post">
+          <div class="mb-4">
+              <label for="username" class="block text-gray-700 text-sm font-bold mb-2">Usuario</label>
+              <input type="text" id="username" name="username" placeholder="Usuario" required
+                     class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500">
+          </div>
+          <div class="mb-4">
+              <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Contraseña</label>
+              <input type="password" id="password" name="password" placeholder="Contraseña" required
+                     class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500">
+          </div>
+          <button type="submit" class="w-full bg-indigo-500 text-white font-bold py-2 px-4 rounded-md hover:bg-indigo-600 focus:outline-none focus:bg-indigo-600">Iniciar sesión</button>
+      </form>
+  </div>
+</body>
 </html>
